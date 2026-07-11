@@ -29,6 +29,14 @@ for (const [route, pkg] of Object.entries(fontPackages)) {
 
 app.use('/', routes);
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+// REQUISITO OBLIGATORIO: Ruta de verificación de salud (Self-Healing)
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'UP',
+        timestamp: new Date(),
+        environment: process.env.NODE_ENV || 'production'
+    });
+});
 
 app.use(errorHandler);
 
