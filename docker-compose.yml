@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mtrr_backend:
+    build: .
+    container_name: mtrr_app_prod
+    # REQUISITO: Política de reinicio automático ante fallas críticas
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # REQUISITO: Las variables se inyectan directamente en el entorno operativo
+      - NODE_ENV=production
+      - PORT=3000
