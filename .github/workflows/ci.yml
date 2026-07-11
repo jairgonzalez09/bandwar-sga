@@ -1,10 +1,10 @@
-name: pipeline-integracion-continua-mtrr
+name: Pipeline MTRR (CI/CD)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
   verificar-servidor:
@@ -35,3 +35,14 @@ jobs:
             process.exit(1);
           }
         "
+
+
+deploy:
+    needs: build-and-test # OBLIGATORIO: Solo se ejecuta si el bloque de arriba (CI) pasa con éxito
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' # Solo se ejecuta al hacer merge/push a main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Desplegar de forma automatizada y desatendida en Render
+        # Envía la señal al servidor para que tome el nuevo artefacto inmutable y lo levante
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
