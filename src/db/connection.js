@@ -1,16 +1,14 @@
 import { Sequelize } from 'sequelize';
 import { AppError } from '../utils/index.js';
 
-export const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-        host: process.env.DB_HOST,
-        dialect: 'postgres',
-        logging: false
-    }
-);
+export const sequelize = process.env.DATABASE_URL
+  ? new Sequelize(process.env.DATABASE_URL, {
+      dialect: 'postgres',
+    })
+  : new Sequelize('mtrr_unefa_db', 'postgres', 'tu_clave_local', {
+      host: '127.0.0.1',
+      dialect: 'postgres'
+    });
 
 export async function connectionDatabase() {
     return sequelize.authenticate()
