@@ -1,7 +1,7 @@
 # Sistematización de Fortificaciones y Obstáculos (MTRR)
 ### 🇻🇪 UNEFA Falcón - Ingeniería de Sistemas
 
-Este sistema automatiza y recopila las especificaciones técnicas de fortificaciones sobre el terreno, diseñado para un rol único de **Operador de Terreno / Cliente**.
+Este sistema automatiza y recopila las especificaciones técnicas de fortificaciones y obstaculos sobre el terreno, diseñado para un rol único de **Operador de Terreno / Cliente**.
 
 ---
 
