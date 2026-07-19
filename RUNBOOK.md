@@ -14,7 +14,6 @@ Ante la sospecha de degradación o caída del servicio, el operador debe validar
   ```bash
   curl -i [https://fortificaciones-y-obstaculos-production.up.railway.app/health](https://fortificaciones-y-obstaculos-production.up.railway.app/health)
 
-  ### 📋 PARTE 2: Copia esto y pégalo justo debajo de lo anterior en el mismo archivo
 
 ```markdown
 ## 🚨 FASE #2: PROTOCOLO ANTE CAÍDAS Y ESCALADO (CONTENCIÓN DEL SLA)
