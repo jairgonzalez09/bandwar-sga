@@ -2,6 +2,7 @@ import express from 'express';
 import 'dotenv/config';
 import path from 'path';
 
+import morgan from 'morgan';
 import routes from './routes/directory.js';
 import loadMiddlewares from './middlewares/index.js';
 import { errorHandler } from './middlewares/errorHandling.js';
@@ -11,6 +12,7 @@ import './models/index.js';
 const app = express();
 
 loadMiddlewares(app);
+app.use(morgan('dev'));
 
 const fontPackages = {
     'plus-jakarta-sans': '@fontsource/plus-jakarta-sans',
@@ -41,5 +43,10 @@ app.get('/health', (req, res) => {
 app.use(errorHandler);
 
 startServer(app);
+
+process.on('uncaughtException', (error) => {
+    console.error(`[CRITICAL RUNBOOK] Excepción no controlada: ${error.message}`);
+    process.exit(1); 
+});
 
 export default app;
