@@ -15,7 +15,6 @@ Ante la sospecha de degradación o caída del servicio, el operador debe validar
   curl -i [https://fortificaciones-y-obstaculos-production.up.railway.app/health](https://fortificaciones-y-obstaculos-production.up.railway.app/health)
 
 
-```markdown
 ## 🚨 FASE #2: PROTOCOLO ANTE CAÍDAS Y ESCALADO (CONTENCIÓN DEL SLA)
 Si el diagnóstico confirma una degradación del servicio, se aplicará el siguiente procedimiento mecánico de contención estructurado en tres niveles de soporte:
 
