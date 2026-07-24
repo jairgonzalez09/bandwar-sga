@@ -5,7 +5,7 @@ export const sequelize = process.env.DATABASE_URL
   ? new Sequelize(process.env.DATABASE_URL, {
       dialect: 'postgres',
     })
-  : new Sequelize('mtrr_unefa_db', 'postgres', 'tu_clave_local', {
+  : new Sequelize('simulation_db', 'postgres', 'Jair210905$', {
       host: '127.0.0.1',
       dialect: 'postgres'
     });
